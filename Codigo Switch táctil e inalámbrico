@@ -15,12 +15,6 @@ const int outPin = 4; // pin de salida
 
 String outState = "apagado"; //variables auxiliar para almacenar el estado actual de la salida
 
-unsigned long tiempo_actual; // temporizador
-unsigned long tiempo_anterior = 0;
-unsigned long delta_tiempo;
-int contador = 0;
-
-
 unsigned long lastTime, timeout = 2000;
 
 void setup() {
@@ -49,7 +43,7 @@ void setup() {
 
 void loop(){
 
-   lectura = touchRead(T8);
+   lectura = touchRead(T8); // pin de entrada sensor tactil
 
     if(lectura < limite){
       digitalWrite(outPin, !digitalRead(outPin));
@@ -148,5 +142,7 @@ void loop(){
   }
   
  
+
+}
 
 }
