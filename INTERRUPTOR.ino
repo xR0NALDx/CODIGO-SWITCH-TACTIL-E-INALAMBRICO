@@ -9,8 +9,6 @@ WiFiServer server(80);
 
 String header; //variable para almacenar el encabezado de la solicitud HTTP
 
-//Instanciamos la clase Slider
-
 int limite = 50;
 int lectura; // lectura de la capacitancia de la placa de aluminio 
 
