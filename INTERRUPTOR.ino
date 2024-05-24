@@ -19,8 +19,8 @@ String outState = "apagado"; //variables auxiliar para almacenar el estado actua
 unsigned long lastTime, timeout = 2000;
 
 void setup() {
+  
   Serial.begin(115200);
-   //Inicializamos el slider indicandole los pines touch.
   pinMode(outPin, OUTPUT);
   digitalWrite(outPin, HIGH);
   
@@ -46,13 +46,11 @@ void loop(){
 
    lectura = touchRead(T8); // pin de entrada sensor tactil
 
-      //al tocar la placa metálica provoca que el valor de lectura sea menor a la de limite indicando que se detectó un cambio en la capacitancia  
-      //provocando así que se cumpla la condición, e indicando al Esp32 que debe encender la bombilla o apagarla 
-      //Esto con un tiempo de espera de 500 milisegundos
+     
 
-    if(lectura < limite){                                 
-      digitalWrite(outPin, !digitalRead(outPin));          
-      delay(500);                                          
+    if(lectura < limite){     //Al tocar la placa, el número de lectura del pin se reducirá dando lugar a que se cumpla la condición, de esta manera se encenderá y apagara la bombilla.                            
+      digitalWrite(outPin, !digitalRead(outPin));   //esto permitirá que la condición se sostenga hasta que vuelva a cambiar la capacitancia,                                                   
+      delay(500);                                   //de otra manera la bombilla se encenderá al tocar la placa, pero al retirar el dedo, volvería a apagarse la bombilla.
     }
 
 
