@@ -72,7 +72,7 @@ void loop(){
         // Si recibe salto de linea y la currentLine esta vacia,
         // la peticion http finalizó, se responde:
         if (c == '\n') {   
-                        
+                      
           if (currentLine.length() == 0) {
 
             // Los encabezados HTTP siempre comienzan con un código de respuesta (por ejemplo, HTTP/1.1 200 OK) 
